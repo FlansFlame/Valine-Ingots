@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "varin_ingots:item/varin_ingot"
+  }
+}
