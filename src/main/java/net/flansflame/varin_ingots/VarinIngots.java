@@ -5,6 +5,7 @@ import net.flansflame.varin_ingots.world.block.ModBlocks;
 import net.flansflame.varin_ingots.world.entity.ModEntities;
 import net.flansflame.varin_ingots.world.item.ModCreativeModeTabs;
 import net.flansflame.varin_ingots.world.item.ModItems;
+import net.flansflame.varin_ingots.world.tool_set.ModToolSets;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -33,6 +34,7 @@ public class VarinIngots
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
+        ModToolSets.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

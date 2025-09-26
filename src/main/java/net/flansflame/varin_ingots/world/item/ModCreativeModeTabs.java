@@ -1,6 +1,7 @@
 package net.flansflame.varin_ingots.world.item;
 
 import net.flansflame.varin_ingots.VarinIngots;
+import net.flansflame.varin_ingots.world.tool_set.ModToolSets;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -9,6 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.ArrayList;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> TABS =
@@ -19,7 +22,12 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("tab." + VarinIngots.MOD_ID + ".varin"))
                     .displayItems((pParameters, pOutput) -> {
 
-                        for (RegistryObject<Item> registry : ModItems.ITEMS.getEntries()){
+                        ArrayList<RegistryObject<Item>> registries = new ArrayList<>();
+
+                        registries.addAll(ModItems.ITEMS.getEntries());
+                        registries.addAll(ModToolSets.TOOL_SETS.REGISTRY.getEntries());
+
+                        for (RegistryObject<Item> registry : registries){
                             pOutput.accept(registry.get());
                         }
 
