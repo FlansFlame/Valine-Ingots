@@ -633,15 +633,9 @@
     },
     "done": true
   },
-  "minecraft:recipes/misc/netherite_ingot_from_netherite_block": {
+  "minecraft:recipes/decorations/enchanting_table": {
     "criteria": {
-      "has_netherite_block": "2025-09-26 19:36:08 +0900"
-    },
-    "done": true
-  },
-  "minecraft:husbandry/obtain_netherite_hoe": {
-    "criteria": {
-      "netherite_hoe": "2025-09-26 19:38:09 +0900"
+      "has_obsidian": "2025-09-26 19:33:58 +0900"
     },
     "done": true
   },
@@ -657,9 +651,15 @@
     },
     "done": true
   },
-  "minecraft:recipes/decorations/enchanting_table": {
+  "minecraft:recipes/misc/netherite_ingot_from_netherite_block": {
     "criteria": {
-      "has_obsidian": "2025-09-26 19:33:58 +0900"
+      "has_netherite_block": "2025-09-26 19:36:08 +0900"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/obtain_netherite_hoe": {
+    "criteria": {
+      "netherite_hoe": "2025-09-26 19:38:09 +0900"
     },
     "done": true
   },
