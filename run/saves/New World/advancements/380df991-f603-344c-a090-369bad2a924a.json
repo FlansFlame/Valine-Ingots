@@ -663,5 +663,59 @@
     },
     "done": true
   },
+  "mekanism:root": {
+    "criteria": {
+      "automatic": "2025-09-27 13:45:00 +0900"
+    },
+    "done": true
+  },
+  "mekanism:antimatter": {
+    "criteria": {
+      "pellet_antimatter": "2025-09-27 13:45:48 +0900"
+    },
+    "done": true
+  },
+  "mekanism:factory": {
+    "criteria": {
+      "factory": "2025-09-27 13:47:35 +0900"
+    },
+    "done": true
+  },
+  "mekanism:metallurgic_infuser": {
+    "criteria": {
+      "metallurgic_infuser": "2025-09-27 13:48:01 +0900"
+    },
+    "done": true
+  },
+  "mekanism:configurator": {
+    "criteria": {
+      "configurator": "2025-09-27 13:51:23 +0900"
+    },
+    "done": true
+  },
+  "mekanism:basic_qio_drive": {
+    "criteria": {
+      "qio_drive_base": "2025-09-27 13:52:23 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/eye_armor_trim_smithing_template_smithing_trim": {
+    "criteria": {
+      "has_smithing_trim_template": "2025-09-27 16:38:46 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/eye_armor_trim_smithing_template": {
+    "criteria": {
+      "has_eye_armor_trim_smithing_template": "2025-09-27 16:38:46 +0900"
+    },
+    "done": true
+  },
+  "minecraft:adventure/trim_with_any_armor_pattern": {
+    "criteria": {
+      "armor_trimmed_minecraft:eye_armor_trim_smithing_template_smithing_trim": "2025-09-27 16:41:40 +0900"
+    },
+    "done": true
+  },
   "DataVersion": 3465
 }

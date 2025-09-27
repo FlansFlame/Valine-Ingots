@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "varin_ingots:item/varin_helmet",
+    "layer1": "minecraft:trims/items/helmet_trim_iron"
+  }
+}
