@@ -1,8 +1,8 @@
 {
   "values": [
-    "varin_ingots:varin_helmet",
-    "varin_ingots:varin_chestplate",
-    "varin_ingots:varin_leggings",
-    "varin_ingots:varin_boots"
+    "valine_ingots:valine_helmet",
+    "valine_ingots:valine_chestplate",
+    "valine_ingots:valine_leggings",
+    "valine_ingots:valine_boots"
   ]
 }

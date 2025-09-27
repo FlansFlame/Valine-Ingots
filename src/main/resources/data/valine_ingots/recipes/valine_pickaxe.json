@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "valine_ingots:valine_pickaxe"
+  },
+  "pattern": [
+    "###",
+    " $ ",
+    " $ "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "$": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "valine_ingots:valine_ingot"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "tab.valine_ingots.valine" : "Valine Ingots",
+
+  "item.valine_ingots.valine_ingot" : "Valine Ingot",
+
+  "item.valine_ingots.valine_sword" : "Valine Sword",
+  "item.valine_ingots.valine_pickaxe" : "Valine Pickaxe",
+  "item.valine_ingots.valine_axe" : "Valine Axe",
+  "item.valine_ingots.valine_shovel" : "Valine Shovel",
+  "item.valine_ingots.valine_hoe" : "Valine Hoe",
+
+  "item.valine_ingots.valine_helmet": "Valine Helmet",
+  "item.valine_ingots.valine_chestplate": "Valine Chestplate",
+  "item.valine_ingots.valine_leggings": "Valine Leggings",
+  "item.valine_ingots.valine_boots": "Valine Boots"
+}
