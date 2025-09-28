@@ -7,6 +7,7 @@ import net.flansflame.valine_ingots.world.item.ModCreativeModeTabs;
 import net.flansflame.valine_ingots.world.item.ModItems;
 import net.flansflame.valine_ingots.world.tool_set.ModToolSets;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -48,8 +49,8 @@ public class ValineIngots
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         /*
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS)
+            event.accept(ModItems.CREATIVE_ANTI_MATTER_PELT);
          */
     }
 

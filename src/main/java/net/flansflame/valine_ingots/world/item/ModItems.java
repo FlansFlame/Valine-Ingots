@@ -1,6 +1,7 @@
 package net.flansflame.valine_ingots.world.item;
 
 import net.flansflame.valine_ingots.ValineIngots;
+import net.flansflame.valine_ingots.world.item.custom.UpgradeArmorItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -17,13 +18,16 @@ public class ModItems {
             () -> new Item(new Item.Properties().rarity(Rarity.RARE).fireResistant()));
 
     public static final RegistryObject<Item> VALINE_HELMET = ITEMS.register("valine_helmet",
-            () -> new ArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.HELMET, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new UpgradeArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.HELMET, new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> VALINE_CHESTPLATE = ITEMS.register("valine_chestplate",
-            () -> new ArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.CHESTPLATE, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new UpgradeArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.CHESTPLATE, new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> VALINE_LEGGINGS = ITEMS.register("valine_leggings",
-            () -> new ArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.LEGGINGS, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new UpgradeArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.LEGGINGS, new Item.Properties().rarity(Rarity.RARE)));
     public static final RegistryObject<Item> VALINE_BOOTS = ITEMS.register("valine_boots",
-            () -> new ArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.BOOTS, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new UpgradeArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.BOOTS, new Item.Properties().rarity(Rarity.RARE)));
+
+    public static final RegistryObject<Item> CREATIVE_ANTI_MATTER_PELT = ITEMS.register("creative_anti_matter_pelt",
+            () -> new Item(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

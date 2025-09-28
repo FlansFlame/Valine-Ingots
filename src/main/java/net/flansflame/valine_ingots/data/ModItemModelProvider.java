@@ -47,6 +47,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         registries.addAll(ModItems.ITEMS.getEntries());
         registries.addAll(ModToolSets.TOOL_SETS.REGISTRY.getEntries());
 
+        registries.remove(ModItems.CREATIVE_ANTI_MATTER_PELT);
+
         for (RegistryObject<Item> registry : registries) {
             if (registry.get() instanceof SwordItem || registry.get() instanceof PickaxeItem || registry.get() instanceof AxeItem || registry.get() instanceof ShovelItem || registry.get() instanceof HoeItem) {
                 handheldItem(registry);
