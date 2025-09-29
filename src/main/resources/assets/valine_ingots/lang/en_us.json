@@ -11,6 +11,9 @@
   "item.valine_ingots.valine_shovel": "Valine Shovel",
   "item.valine_ingots.valine_hoe": "Valine Hoe",
 
+  "valine_ingots:multi_barrier": "Multi Barrier",
+  "valine_ingots:critical": "Critical",
+
   "item.valine_ingots.valine_armors.desc.refine": "Refine :",
   "item.valine_ingots.valine_armors.desc.refine.none": "§7Refine :",
   "item.valine_ingots.valine_armors.desc.refine.end": "§4Refine :",

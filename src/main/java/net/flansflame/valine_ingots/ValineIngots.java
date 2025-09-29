@@ -1,6 +1,7 @@
 package net.flansflame.valine_ingots;
 
 import com.mojang.logging.LogUtils;
+import net.flansflame.valine_ingots.attribute.ModAttributes;
 import net.flansflame.valine_ingots.world.block.ModBlocks;
 import net.flansflame.valine_ingots.world.entity.ModEntities;
 import net.flansflame.valine_ingots.world.item.ModCreativeModeTabs;
@@ -36,6 +37,7 @@ public class ValineIngots
         ModEntities.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModToolSets.register(modEventBus);
+        ModAttributes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

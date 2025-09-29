@@ -8,4 +8,6 @@ public class ModComponents {
     public static final TagRegisterer TAGS = new TagRegisterer(ValineIngots.MOD_ID);
 
     public static final IntegerTag REFINE = TAGS.register(new IntegerTag("refine"));
+
+    public static final IntegerTag MULTI_BARRIER_STACK = TAGS.register(new IntegerTag("multi_barrier_stack"));
 }
