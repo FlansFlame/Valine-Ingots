@@ -27,13 +27,13 @@ public class ModCreativeModeTabs {
                         registries.addAll(ModItems.ITEMS.getEntries());
                         registries.addAll(ModToolSets.TOOL_SETS.REGISTRY.getEntries());
 
-                        registries.remove(ModItems.CREATIVE_ANTI_MATTER_PELT);
+                        registries.remove(ModItems.CREATIVE_ANTI_MATTER_PELLET);
 
                         for (RegistryObject<Item> registry : registries){
                             pOutput.accept(registry.get());
                         }
 
-                        pOutput.accept(ModItems.CREATIVE_ANTI_MATTER_PELT.get());
+                        pOutput.accept(ModItems.CREATIVE_ANTI_MATTER_PELLET.get());
 
                     })
                     .build());

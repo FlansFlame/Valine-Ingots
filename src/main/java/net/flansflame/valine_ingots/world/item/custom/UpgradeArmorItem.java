@@ -51,7 +51,7 @@ public class UpgradeArmorItem extends ArmorItem {
             itemStack.setDamageValue(itemStack.getDamageValue() - 200);
             subItemStack.shrink(1);
             return InteractionResultHolder.success(itemStack);
-        } else if (ModComponents.REFINE.get(itemStack) < 50 && subItemStack.is(ModItems.CREATIVE_ANTI_MATTER_PELT.get())) {
+        } else if (ModComponents.REFINE.get(itemStack) < 50 && subItemStack.is(ModItems.CREATIVE_ANTI_MATTER_PELLET.get())) {
             if (player.isShiftKeyDown()) {
                 ModComponents.REFINE.set(itemStack, 50);
             } else {
@@ -113,12 +113,12 @@ public class UpgradeArmorItem extends ArmorItem {
                 case HELMET -> {
                     uuid = UUID.fromString("fa43d0e6-0433-4c59-9ffc-ec3f59e6c101");
                     attribute = ModAttributes.CRITICAL.get();
-                    amount = refine * 0.005;
+                    amount = refine * 0.01;
                 }
                 case CHESTPLATE -> {
                     uuid = UUID.fromString("a10e7855-10ae-4a6a-9774-a95240acc045");
                     attribute = ModAttributes.MULTI_BARRIER.get();
-                    amount = refine * 0.01;
+                    amount = refine * 0.015;
                 }
                 case LEGGINGS -> {
                     uuid = UUID.fromString("f221e4e1-075a-446c-8cd3-9dfbc3a9a1bd");

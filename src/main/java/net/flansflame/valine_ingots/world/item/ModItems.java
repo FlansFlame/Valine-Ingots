@@ -26,7 +26,7 @@ public class ModItems {
     public static final RegistryObject<Item> VALINE_BOOTS = ITEMS.register("valine_boots",
             () -> new UpgradeArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.BOOTS, new Item.Properties().rarity(Rarity.RARE)));
 
-    public static final RegistryObject<Item> CREATIVE_ANTI_MATTER_PELT = ITEMS.register("creative_anti_matter_pelt",
+    public static final RegistryObject<Item> CREATIVE_ANTI_MATTER_PELLET = ITEMS.register("creative_anti_matter_pellet",
             () -> new Item(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1)));
 
     public static void register(IEventBus eventBus){
