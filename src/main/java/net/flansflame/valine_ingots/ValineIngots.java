@@ -2,13 +2,15 @@ package net.flansflame.valine_ingots;
 
 import com.mojang.logging.LogUtils;
 import net.flansflame.valine_ingots.attribute.ModAttributes;
+import net.flansflame.valine_ingots.client.screen.ModMenuTypes;
 import net.flansflame.valine_ingots.world.block.ModBlocks;
+import net.flansflame.valine_ingots.world.block_entity.ModBlockEntities;
 import net.flansflame.valine_ingots.world.entity.ModEntities;
 import net.flansflame.valine_ingots.world.item.ModCreativeModeTabs;
 import net.flansflame.valine_ingots.world.item.ModItems;
+import net.flansflame.valine_ingots.world.recipe.ModRecipes;
 import net.flansflame.valine_ingots.world.tool_set.ModToolSets;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -22,13 +24,11 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 @Mod(ValineIngots.MOD_ID)
-public class ValineIngots
-{
+public class ValineIngots {
     public static final String MOD_ID = "valine_ingots";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public ValineIngots()
-    {
+    public ValineIngots() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
@@ -38,18 +38,19 @@ public class ValineIngots
         ModCreativeModeTabs.register(modEventBus);
         ModToolSets.register(modEventBus);
         ModAttributes.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("HELLO FROM COMMON SETUP");
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
         /*
         if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS)
             event.accept(ModItems.CREATIVE_ANTI_MATTER_PELT);
@@ -57,17 +58,14 @@ public class ValineIngots
     }
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
+    public void onServerStarting(ServerStartingEvent event) {
         LOGGER.info("HELLO from server starting");
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }

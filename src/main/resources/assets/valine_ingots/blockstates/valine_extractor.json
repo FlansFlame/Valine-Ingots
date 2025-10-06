@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "valine_ingots:block/valine_extractor",
+      "y" : 90
+    },
+    "facing=north": {
+      "model": "valine_ingots:block/valine_extractor"
+    },
+    "facing=south": {
+      "model": "valine_ingots:block/valine_extractor",
+      "y" : 180
+    },
+    "facing=west": {
+      "model": "valine_ingots:block/valine_extractor",
+      "y" : -90
+    }
+  }
+}

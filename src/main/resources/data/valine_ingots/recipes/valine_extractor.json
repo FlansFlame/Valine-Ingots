@@ -1,0 +1,26 @@
+{
+  "result": {
+    "item": "valine_ingots:valine_extractor"
+  },
+  "pattern": [
+    "%B%",
+    "#N#",
+    "%B%"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:furnace"
+    },
+    "%": {
+      "item": "minecraft:iron_block"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "N": {
+      "item": "valine_ingots:machine_frame"
+    }
+  }
+}

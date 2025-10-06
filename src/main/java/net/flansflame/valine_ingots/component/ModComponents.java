@@ -1,5 +1,6 @@
 package net.flansflame.valine_ingots.component;
 
+import net.flansflame.flans_knowledge_lib.component.FloatTag;
 import net.flansflame.flans_knowledge_lib.component.IntegerTag;
 import net.flansflame.flans_knowledge_lib.component.TagRegisterer;
 import net.flansflame.valine_ingots.ValineIngots;

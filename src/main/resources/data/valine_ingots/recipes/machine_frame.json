@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "valine_ingots:machine_frame"
+  },
+  "pattern": [
+    "%#%",
+    "#N#",
+    "%#%"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:iron_block"
+    },
+    "%": {
+      "item": "minecraft:redstone"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  }
+}

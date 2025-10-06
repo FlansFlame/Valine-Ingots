@@ -2,7 +2,6 @@ package net.flansflame.valine_ingots.world.tool_set.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import mekanism.common.registries.MekanismItems;
 import net.flansflame.flans_knowledge_lib.tool_set.CustomPickaxeItem;
 import net.flansflame.flans_knowledge_lib.tool_set.CustomToolSets;
 import net.flansflame.valine_ingots.ValineIngots;
@@ -22,9 +21,11 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class UpgradePickaxeItem extends CustomPickaxeItem {
@@ -36,19 +37,19 @@ public class UpgradePickaxeItem extends CustomPickaxeItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         ItemStack subItemStack;
-        if (hand == InteractionHand.MAIN_HAND){
+        if (hand == InteractionHand.MAIN_HAND) {
             subItemStack = player.getOffhandItem();
         } else {
             subItemStack = player.getMainHandItem();
         }
 
-        if (ModComponents.REFINE.get(itemStack) < 50 && subItemStack.is(MekanismItems.ANTIMATTER_PELLET.asItem()) && itemStack.getDamageValue() >= 200){
+        if (ModComponents.REFINE.get(itemStack) < 50 && Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(subItemStack.getItem())).toString().equals("mekanism:pellet_antimatter") && itemStack.getDamageValue() >= 200) {
             ModComponents.REFINE.add(itemStack);
             itemStack.setDamageValue(itemStack.getDamageValue() - 200);
             subItemStack.shrink(1);
             return InteractionResultHolder.success(itemStack);
         } else if (ModComponents.REFINE.get(itemStack) < 50 && subItemStack.is(ModItems.CREATIVE_ANTI_MATTER_PELLET.get())) {
-            if (player.isShiftKeyDown()){
+            if (player.isShiftKeyDown()) {
                 ModComponents.REFINE.set(itemStack, 50);
             } else {
                 ModComponents.REFINE.add(itemStack);
@@ -77,7 +78,7 @@ public class UpgradePickaxeItem extends CustomPickaxeItem {
             component.add(Component.translatable("item." + ValineIngots.MOD_ID + ".valine_armors.desc.refine.none"));
             component.add(Component.literal(" §7" + refine + " / 50"));
             component.add(Component.translatable("item." + ValineIngots.MOD_ID + ".valine_armors.desc.damage.none"));
-            if (damage >= 200){
+            if (damage >= 200) {
                 component.add(Component.literal(" " + damage + "§7 / 200"));
             } else {
                 component.add(Component.literal(" §7" + damage + " / 200"));

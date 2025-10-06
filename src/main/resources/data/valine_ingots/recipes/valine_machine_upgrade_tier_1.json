@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "valine_ingots:valine_machine_upgrade_tier_1"
+  },
+  "pattern": [
+    "%#%",
+    "#D#",
+    "%#%"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "valine_ingots:valine_ingot"
+    },
+    "%": {
+      "item": "minecraft:iron_nugget"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  }
+}

@@ -1,1 +1,3 @@
-// 1.20.1	2025-09-27T17:30:45.6978882	Loot Tables
+// 1.20.1	2025-09-30T17:54:18.9887338	Loot Tables
+e128b89293a51c386e94d5ed767f1231cea7b0ff data/valine_ingots/loot_tables/blocks/machine_frame.json
+ee86afc560dcacb3a0f0105503aac98cf2b7743a data/valine_ingots/loot_tables/blocks/valine_extractor.json

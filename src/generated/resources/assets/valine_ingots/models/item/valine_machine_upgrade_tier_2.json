@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "valine_ingots:item/valine_machine_upgrade_tier_2"
+  }
+}

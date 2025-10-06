@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    },
+    {
+      "item": "valine_ingots:valine_nugget"
+    }
+  ],
+  "result": {
+    "item": "valine_ingots:valine_ingot"
+  }
+}

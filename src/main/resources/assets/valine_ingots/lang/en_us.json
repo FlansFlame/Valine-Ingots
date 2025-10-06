@@ -1,7 +1,13 @@
 {
   "tab.valine_ingots.valine": "Valine Ingots",
 
+  "item.valine_ingots.valine_nugget": "Valine Nugget",
   "item.valine_ingots.valine_ingot": "Valine Ingot",
+
+  "item.valine_ingots.valine_machine_upgrade_tier_1" : "Valine Machine Upgrade [x1.5]",
+  "item.valine_ingots.valine_machine_upgrade_tier_2" : "Valine Machine Upgrade [x2]",
+  "item.valine_ingots.valine_machine_upgrade_tier_3" : "Valine Machine Upgrade [x3]",
+  "item.valine_ingots.valine_machine_upgrade_tier_4" : "Valine Machine Upgrade [x5]",
 
   "item.valine_ingots.creative_anti_matter_pellet": "Creative Anti Matter Pellet",
 
@@ -13,6 +19,11 @@
 
   "valine_ingots:multi_barrier": "Multi Barrier",
   "valine_ingots:critical": "Critical",
+
+  "block.valine_ingots.machine_frame" : "Machine Frame",
+  "block.valine_ingots.valine_extractor": "Valine Extractor",
+  "block.valine_ingots.valine_extractor.gui": "Valine Extracting",
+  "block.valine_ingots.valine_extractor.category.tick": "%ss",
 
   "item.valine_ingots.valine_armors.desc.refine": "Refine :",
   "item.valine_ingots.valine_armors.desc.refine.none": "§7Refine :",

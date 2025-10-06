@@ -1,9 +1,9 @@
 
 ["cheat mode"]
-	#Enable the cheat mode for players who have an operator status (/op).
+	#Enable Cheat Mode for Operators (/op)
 	enableCheatModeForOp = true
-	#Enable the cheat mode for players who are in the creative mode.
+	#Enable Cheat Mode for users in Creative Mode
 	enableCheatModeForCreative = true
-	#Enable the cheat mode for players who can use the "/give" command.
+	#Enable Cheat Mode for users who can use /give
 	enableCheatModeForGive = false
 

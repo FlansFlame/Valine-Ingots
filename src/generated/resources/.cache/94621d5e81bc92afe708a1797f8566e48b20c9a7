@@ -1,1 +1,4 @@
-// 1.20.1	2025-09-27T17:30:45.7000708	Block States: valine_ingots
+// 1.20.1	2025-09-30T17:54:18.9907494	Block States: valine_ingots
+63e0a1a87ca17733f5780c9edee4c2aaaf4f40a4 assets/valine_ingots/blockstates/machine_frame.json
+d53676f560376915a8380246b5eca43b07912d05 assets/valine_ingots/models/block/machine_frame.json
+84f85416c7010407bb6b7bc1b7753d22242a50f0 assets/valine_ingots/models/item/machine_frame.json

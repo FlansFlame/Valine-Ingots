@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "valine_ingots:valine_machine_upgrade_tier_4"
+  },
+  "pattern": [
+    "#T#",
+    "T T",
+    "#T#"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "valine_ingots:valine_nugget"
+    },
+    "T": {
+      "item": "valine_ingots:valine_machine_upgrade_tier_3"
+    }
+  }
+}

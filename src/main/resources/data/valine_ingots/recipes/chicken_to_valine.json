@@ -1,0 +1,11 @@
+{
+  "type": "valine_ingots:valine_extracting",
+  "ingredient": {
+    "item": "minecraft:chicken"
+  },
+  "tick": 900,
+  "result": {
+    "item": "valine_ingots:valine_nugget",
+    "count": 3
+  }
+}

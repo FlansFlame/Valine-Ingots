@@ -1,12 +1,14 @@
 package net.flansflame.valine_ingots.world.item;
 
 import net.flansflame.valine_ingots.ValineIngots;
+import net.flansflame.valine_ingots.world.block.ModBlocks;
 import net.flansflame.valine_ingots.world.tool_set.ModToolSets;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -26,6 +28,7 @@ public class ModCreativeModeTabs {
 
                         registries.addAll(ModItems.ITEMS.getEntries());
                         registries.addAll(ModToolSets.TOOL_SETS.REGISTRY.getEntries());
+                        registries.addAll(ModBlocks.ITEMS.getEntries());
 
                         registries.remove(ModItems.CREATIVE_ANTI_MATTER_PELLET);
 

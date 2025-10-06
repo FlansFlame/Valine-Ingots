@@ -13,7 +13,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 public class ModToolSets {
     public static final ToolSetRegisterer TOOL_SETS = new ToolSetRegisterer(ValineIngots.MOD_ID);
 
-    public static final ToolSet VALINE_TOOL = TOOL_SETS.register(new UpgradeToolSet(ValineIngots.MOD_ID, "valine", ModItems.VALINE_INGOT, 18, 1.8f, 5, 10f, 4096, Tiers.NETHERITE, new Item.Properties().rarity(Rarity.RARE)));
+    public static final ToolSet VALINE_TOOL = TOOL_SETS.register(new UpgradeToolSet(ValineIngots.MOD_ID, "valine", ModItems.VALINE_INGOT, 18, 1.8f, 5, 10f, 4096, Tiers.NETHERITE, new Item.Properties().rarity(Rarity.RARE).fireResistant()));
 
     public static void register(IEventBus eventBus) {
         TOOL_SETS.register(eventBus);

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "valine_ingots:valine_ingot"
+    }
+  ],
+  "result": {
+    "item": "valine_ingots:valine_nugget",
+    "count": 9
+  }
+}

@@ -2,8 +2,6 @@ package net.flansflame.valine_ingots.attribute;
 
 import net.flansflame.valine_ingots.component.ModComponents;
 import net.flansflame.valine_ingots.world.item.ModItems;
-import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

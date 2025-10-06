@@ -1,0 +1,11 @@
+{
+  "type": "valine_ingots:valine_extracting",
+  "ingredient": {
+    "item": "minecraft:egg"
+  },
+  "tick": 300,
+  "result": {
+    "item": "valine_ingots:valine_nugget",
+    "count": 1
+  }
+}

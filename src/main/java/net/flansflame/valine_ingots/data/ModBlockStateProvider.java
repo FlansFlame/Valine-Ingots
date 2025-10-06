@@ -1,6 +1,7 @@
 package net.flansflame.valine_ingots.data;
 
 import net.flansflame.valine_ingots.ValineIngots;
+import net.flansflame.valine_ingots.world.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -14,7 +15,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        //blockWithItem();
+        blockWithItem(ModBlocks.MACHINE_FRAME);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

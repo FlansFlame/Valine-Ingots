@@ -2,7 +2,6 @@ package net.flansflame.valine_ingots.world.tool_set.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import mekanism.common.registries.MekanismItems;
 import net.flansflame.flans_knowledge_lib.tool_set.CustomSwordItem;
 import net.flansflame.flans_knowledge_lib.tool_set.CustomToolSets;
 import net.flansflame.valine_ingots.ValineIngots;
@@ -22,9 +21,11 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class UpgradeSwordItem extends CustomSwordItem {
@@ -42,7 +43,7 @@ public class UpgradeSwordItem extends CustomSwordItem {
             subItemStack = player.getMainHandItem();
         }
 
-        if (ModComponents.REFINE.get(itemStack) < 50 && subItemStack.is(MekanismItems.ANTIMATTER_PELLET.asItem()) && itemStack.getDamageValue() >= 200) {
+        if (ModComponents.REFINE.get(itemStack) < 50 && Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(subItemStack.getItem())).toString().equals("mekanism:pellet_antimatter") && itemStack.getDamageValue() >= 200) {
             ModComponents.REFINE.add(itemStack);
             itemStack.setDamageValue(itemStack.getDamageValue() - 200);
             subItemStack.shrink(1);
