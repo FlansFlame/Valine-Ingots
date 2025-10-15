@@ -1,4 +1,5 @@
-// 1.20.1	2025-10-06T18:37:42.7459646	Item Models: valine_ingots
+// 1.20.1	2025-10-14T18:16:20.1345405	Item Models: valine_ingots
+fed62cde1aa73cf10a00329c2141de26f721e311 assets/valine_ingots/models/item/incomplete_valine_upgrade_chip.json
 3e7402bcf11b8d1220f1bfb6c9d14b6d7438b856 assets/valine_ingots/models/item/valine_axe.json
 25969be3a8e04f1027c8e741e1ebcd8fe467a180 assets/valine_ingots/models/item/valine_boots.json
 663a2f184d2e08e49edb50e034d0cdd855cab83b assets/valine_ingots/models/item/valine_boots_amethyst_trim.json
@@ -51,6 +52,8 @@ b0299ef83f73a25b14ebe1e2cd42b2016ac666e5 assets/valine_ingots/models/item/valine
 9bb6135f19cf79844a2746bed91c54fd4c300175 assets/valine_ingots/models/item/valine_machine_upgrade_tier_3.json
 143910a55b1234e7f4d7aaf9de3623fd0c053019 assets/valine_ingots/models/item/valine_machine_upgrade_tier_4.json
 624b3252e8da0eb06125320797cf1528be0435f8 assets/valine_ingots/models/item/valine_nugget.json
+08b9c629ac79259aac745486231492652d46f4ee assets/valine_ingots/models/item/valine_paxel.json
 cf2a51bacb3ab545623edfd96f31728591ace5dc assets/valine_ingots/models/item/valine_pickaxe.json
 17771569635388695afb3dc3909883f0630aa8c4 assets/valine_ingots/models/item/valine_shovel.json
 6b1fb0e453c69aa17be8a52d58c07cf2812d1c00 assets/valine_ingots/models/item/valine_sword.json
+890b7aa0ab8a28423d96ade15a34cb1d62c203d7 assets/valine_ingots/models/item/valine_upgrade_chip.json

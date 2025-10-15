@@ -48,10 +48,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         registries.addAll(ModItems.ITEMS.getEntries());
         registries.addAll(ModToolSets.TOOL_SETS.REGISTRY.getEntries());
 
+        registries.remove(ModItems.VALINE_SPEAR);
+        registries.remove(ModItems.VALINE_PAXEL);
+
         registries.remove(ModItems.CREATIVE_ANTI_MATTER_PELLET);
 
         for (RegistryObject<Item> registry : registries) {
-            if (registry.get() instanceof SwordItem || registry.get() instanceof PickaxeItem || registry.get() instanceof AxeItem || registry.get() instanceof ShovelItem || registry.get() instanceof HoeItem) {
+            if (registry.get() instanceof SwordItem || registry.get() instanceof DiggerItem) {
                 handheldItem(registry);
             } else if (registry.get() instanceof ArmorItem) {
                 trimmedArmorItem(registry);

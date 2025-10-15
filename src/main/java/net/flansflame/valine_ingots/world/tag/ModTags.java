@@ -12,6 +12,8 @@ public class ModTags {
 
     public static class Blocks{
 
+        public static final TagKey<Block> PAXEL_MINEABLE = create("mineable/paxel");
+
         private static TagKey<Block> create(String name) {
             return BlockTags.create(new ResourceLocation(ValineIngots.MOD_ID, name));
         }

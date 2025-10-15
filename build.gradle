@@ -164,10 +164,12 @@ dependencies {
     implementation fg.deobf("dev.shadowsoffire:ApothicAttributes:${minecraft_version}-${attributesLibVersion}")
 
     implementation fg.deobf("curse.maven:attributefix-280510:4911084")
+    */
 
+    ///*
     implementation fg.deobf("curse.maven:epic-fight-mod-405076:6145747")
     implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:5889471")
-     */
+    //*/
 
     //implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
     //implementation("com.eliotlash.mclib:mclib:20")
@@ -184,11 +186,11 @@ dependencies {
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
-            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-            forge_version: forge_version, forge_version_range: forge_version_range,
+            minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version       : forge_version, forge_version_range: forge_version_range,
             loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
+            mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors         : mod_authors, mod_description: mod_description,
     ]
     inputs.properties replaceProperties
 

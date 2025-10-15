@@ -65,4 +65,8 @@ public class UpgradeToolSet extends ToolSet {
             return new UpgradeHoeItem(this.TIER, attackDamage, attackSpeed, build, builder);
         }));
     }
+
+    public Tier getTier(){
+        return this.TIER;
+    }
 }

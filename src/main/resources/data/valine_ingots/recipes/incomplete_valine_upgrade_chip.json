@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "valine_ingots:incomplete_valine_upgrade_chip"
+  },
+  "pattern": [
+    "%#%",
+    "#$#",
+    "%#%"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "%": {
+      "tag": "valine_ingots:valine_machine_upgrades"
+    },
+    "#": {
+      "item": "valine_ingots:valine_ingot"
+    },
+    "$": {
+      "tag": "forge:chests"
+    }
+  }
+}

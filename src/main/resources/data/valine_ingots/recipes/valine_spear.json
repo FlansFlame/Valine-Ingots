@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:iron_nugget"
+  },
+  "base": {
+    "item": "valine_ingots:valine_sword"
+  },
+  "result": {
+    "item": "valine_ingots:valine_spear"
+  },
+  "template": {
+    "item": "valine_ingots:valine_upgrade_chip"
+  }
+}

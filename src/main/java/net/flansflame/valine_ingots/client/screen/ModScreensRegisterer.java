@@ -1,7 +1,7 @@
-package net.flansflame.valine_ingots.client.screen.custom;
+package net.flansflame.valine_ingots.client.screen;
 
 import net.flansflame.valine_ingots.ValineIngots;
-import net.flansflame.valine_ingots.client.screen.ModMenuTypes;
+import net.flansflame.valine_ingots.client.screen.custom.ValineExtractorScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

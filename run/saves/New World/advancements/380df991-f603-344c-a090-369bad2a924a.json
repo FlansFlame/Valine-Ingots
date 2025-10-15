@@ -188,6 +188,7 @@
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
       "minecraft:zoglin": "2025-09-28 15:49:38 +0900",
+      "minecraft:hoglin": "2025-10-14 10:32:16 +0900",
       "minecraft:vindicator": "2025-09-28 15:50:05 +0900",
       "minecraft:wither_skeleton": "2025-09-24 19:03:45 +0900",
       "minecraft:husk": "2025-09-24 14:00:27 +0900",
@@ -944,6 +945,12 @@
   "minecraft:end/dragon_breath": {
     "criteria": {
       "dragon_breath": "2025-10-06 18:21:14 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/wheat": {
+    "criteria": {
+      "has_hay_block": "2025-10-14 18:53:03 +0900"
     },
     "done": true
   },

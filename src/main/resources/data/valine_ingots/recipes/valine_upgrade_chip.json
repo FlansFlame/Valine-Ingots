@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "valine_ingots:valine_upgrade_chip"
+  },
+  "pattern": [
+    "%#%",
+    "#$#",
+    "%#%"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "%": {
+      "item": "valine_ingots:valine_ingot"
+    },
+    "#": {
+      "item": "minecraft:iron_block"
+    },
+    "$": {
+      "item": "valine_ingots:incomplete_valine_upgrade_chip"
+    }
+  }
+}

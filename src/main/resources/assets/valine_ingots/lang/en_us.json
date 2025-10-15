@@ -4,6 +4,11 @@
   "item.valine_ingots.valine_nugget": "Valine Nugget",
   "item.valine_ingots.valine_ingot": "Valine Ingot",
 
+  "item.valine_ingots.incomplete_valine_upgrade_chip": "Incomplete Valine Upgrade Chip",
+  "item.valine_ingots.valine_upgrade_chip": "Valine Upgrade Chip",
+  "item.valine_ingots.valine_spear": "Valine Spear",
+  "item.valine_ingots.valine_paxel": "Valine Paxel",
+
   "item.valine_ingots.valine_machine_upgrade_tier_1" : "Valine Machine Upgrade [x1.5]",
   "item.valine_ingots.valine_machine_upgrade_tier_2" : "Valine Machine Upgrade [x2]",
   "item.valine_ingots.valine_machine_upgrade_tier_3" : "Valine Machine Upgrade [x3]",
