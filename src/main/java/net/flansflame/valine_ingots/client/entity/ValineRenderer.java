@@ -7,6 +7,7 @@ import net.flansflame.valine_ingots.world.entity.custom.ValineEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
@@ -21,8 +22,8 @@ public class ValineRenderer<T extends ValineEntity> extends GeoEntityRenderer<T>
     }
 
     @Override
-    public ResourceLocation getTextureLocation(T animatable) {
-        return new ResourceLocation(ValineIngots.MOD_ID, "textures/entity/" + ID + ".png");
+    public @NotNull ResourceLocation getTextureLocation(T animatable) {
+        return new ResourceLocation(ValineIngots.MOD_ID, "textures/entity/" + ID + animatable.getAttackPhase() + ".png");
     }
 
     @Override
@@ -36,17 +37,17 @@ public class ValineRenderer<T extends ValineEntity> extends GeoEntityRenderer<T>
     public static class Model<T extends ValineEntity> extends GeoModel<T> {
         @Override
         public ResourceLocation getModelResource(T animatable) {
-            return new ResourceLocation(ValineIngots.MOD_ID, "geo/entity/" + ID + ".geo.json");
+            return new ResourceLocation(ValineIngots.MOD_ID, "geo/entity/" + ID + animatable.getAttackPhase() + ".geo.json");
         }
 
         @Override
         public ResourceLocation getTextureResource(T animatable) {
-            return new ResourceLocation(ValineIngots.MOD_ID, "textures/entity/" + ID + ".png");
+            return new ResourceLocation(ValineIngots.MOD_ID, "textures/entity/" + ID + animatable.getAttackPhase() + ".png");
         }
 
         @Override
         public ResourceLocation getAnimationResource(T animatable) {
-            return new ResourceLocation(ValineIngots.MOD_ID, "animations/entity/" + ID + ".animation.json");
+            return new ResourceLocation(ValineIngots.MOD_ID, "animations/entity/" + ID + animatable.getAttackPhase() + ".animation.json");
         }
     }
 }

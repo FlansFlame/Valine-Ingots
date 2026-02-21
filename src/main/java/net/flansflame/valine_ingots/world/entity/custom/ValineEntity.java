@@ -193,6 +193,9 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved {
     /*INVINCIBILITY*/
     @Override
     public boolean hurt(DamageSource source, float amount) {
+        if (this.getAttackPhase() < 2) {
+            return super.hurt(source, amount);
+        }
         Entity entity = source.getEntity();
         if (entity instanceof Player player && player.getMainHandItem().is(ModTags.Items.CAN_DAMAGE_VALINE)) {
             this.damageExHp(amount);
@@ -203,11 +206,14 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved {
 
     @Override
     public float getHealth() {
-        return this.getMaxHealth();
+        return this.getExHp();
     }
 
     @Override
     public void setHealth(float amount) {
+        if (this.getAttackPhase() < 2) {
+            this.setExHp(amount);
+        }
         return;
     }
 
@@ -278,6 +284,12 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved {
     }
 
     public void exDeath() {
+        int attackPhase = this.getAttackPhase();
+        if (++attackPhase < 4) {
+            this.setAttackPhase(attackPhase);
+            this.setExHp(MAX_EX_HP);
+            return;
+        }
         if (this.level() instanceof ServerLevel server) {
             server.sendParticles(ParticleTypes.EXPLOSION_EMITTER, this.getX(), this.getY() + 0.5, this.getZ(), 1, 0, 0, 0, 0);
             server.playSound(null, this.blockPosition(), SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE);
