@@ -22,8 +22,9 @@
   "item.valine_ingots.valine_shovel": "Valine Shovel",
   "item.valine_ingots.valine_hoe": "Valine Hoe",
 
-  "valine_ingots:multi_barrier": "Multi Barrier",
-  "valine_ingots:critical": "Critical",
+  "attribute.valine_ingots.multi_barrier": "Multi Barrier",
+  "attribute.valine_ingots.critical": "Critical",
+  "attribute.valine_ingots.anti_valine_protection": "Anti Valine Protection",
 
   "block.valine_ingots.machine_frame" : "Machine Frame",
   "block.valine_ingots.valine_extractor": "Valine Extractor",
@@ -39,5 +40,11 @@
   "item.valine_ingots.valine_helmet": "Valine Helmet",
   "item.valine_ingots.valine_chestplate": "Valine Chestplate",
   "item.valine_ingots.valine_leggings": "Valine Leggings",
-  "item.valine_ingots.valine_boots": "Valine Boots"
+  "item.valine_ingots.valine_boots": "Valine Boots",
+
+  "item.valine_ingots.mysterious_glove": "Mysterious Glove",
+  "item.valine_ingots.mysterious_glove.desc": "§8Looks sus... There nothing inside so I guess it's safe?\nI wonder what happens when I right click it.",
+
+  "entity.valine_ingots.valine": "Valine-Chan",
+  "entity.valine_ingots.falling_valine_spear": "Falling Valine Spear"
 }

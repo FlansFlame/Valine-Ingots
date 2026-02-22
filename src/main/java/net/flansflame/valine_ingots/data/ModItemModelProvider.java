@@ -1,9 +1,8 @@
 package net.flansflame.valine_ingots.data;
 
 import net.flansflame.valine_ingots.ValineIngots;
-import net.flansflame.valine_ingots.world.block.ModBlocks;
-import net.flansflame.valine_ingots.world.item.ModItems;
-import net.flansflame.valine_ingots.world.tool_set.ModToolSets;
+import net.flansflame.valine_ingots.items.ModItems;
+import net.flansflame.valine_ingots.toolsets.ModToolSets;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;

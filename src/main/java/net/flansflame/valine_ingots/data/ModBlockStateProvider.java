@@ -1,7 +1,7 @@
 package net.flansflame.valine_ingots.data;
 
 import net.flansflame.valine_ingots.ValineIngots;
-import net.flansflame.valine_ingots.world.block.ModBlocks;
+import net.flansflame.valine_ingots.blocks.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;

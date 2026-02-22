@@ -1,10 +1,9 @@
 package net.flansflame.valine_ingots.data;
 
-import net.flansflame.valine_ingots.world.block.ModBlocks;
+import net.flansflame.valine_ingots.blocks.ModBlocks;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;

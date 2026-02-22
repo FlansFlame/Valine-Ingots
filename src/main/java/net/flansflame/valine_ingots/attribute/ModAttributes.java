@@ -12,13 +12,16 @@ public class ModAttributes {
     public static final DeferredRegister<Attribute> ATTRIBUTES =
             DeferredRegister.create(ForgeRegistries.ATTRIBUTES, ValineIngots.MOD_ID);
 
-    public static final RegistryObject<Attribute> MULTI_BARRIER = ATTRIBUTES.register("multi_barrier",
-            () -> new RangedAttribute(ValineIngots.MOD_ID + ":multi_barrier", 0f, 0f, 1f).setSyncable(true));
+    public static final RegistryObject<Attribute> MULTI_BARRIER = ATTRIBUTES.register(ValineIngots.MOD_ID + "_" + "multi_barrier",
+            () -> new RangedAttribute("attribute." + ValineIngots.MOD_ID + ".multi_barrier", 0f, 0f, 1f).setSyncable(true));
 
-    public static final RegistryObject<Attribute> CRITICAL = ATTRIBUTES.register("critical",
-            () -> new RangedAttribute(ValineIngots.MOD_ID + ":critical", 0f, 0f, 1f).setSyncable(true));
+    public static final RegistryObject<Attribute> CRITICAL = ATTRIBUTES.register(ValineIngots.MOD_ID + "_" + "critical",
+            () -> new RangedAttribute("attribute." + ValineIngots.MOD_ID + ".critical", 0f, 0f, 1f).setSyncable(true));
 
-    public static void register(IEventBus eventBus){
+    public static final RegistryObject<Attribute> ANTI_VALINE_PROTECTION = ATTRIBUTES.register(ValineIngots.MOD_ID + "_" + "anti_valine_protection",
+            () -> new RangedAttribute("attribute." + ValineIngots.MOD_ID + ".anti_valine_protection", 0f, 0f, 1f).setSyncable(true));
+
+    public static void register(IEventBus eventBus) {
         ATTRIBUTES.register(eventBus);
     }
 }

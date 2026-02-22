@@ -1,0 +1,29 @@
+{
+  "result": {
+    "item": "valine_ingots:valine_paxel"
+  },
+  "pattern": [
+    "ASP",
+    " # ",
+    " % "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "valine_ingots:valine_axe"
+    },
+    "S": {
+      "item": "valine_ingots:valine_shovel"
+    },
+    "P": {
+      "item": "valine_ingots:valine_pickaxe"
+    },
+    "%": {
+      "item": "valine_ingots:valine_spear"
+    },
+    "#": {
+      "item": "valine_ingots:valine_upgrade_chip"
+    }
+  }
+}
