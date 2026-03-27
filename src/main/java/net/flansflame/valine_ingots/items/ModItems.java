@@ -42,6 +42,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> VALINE_MACHINE_UPGRADE_TIER_4 = ITEMS.register("valine_machine_upgrade_tier_4",
             () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> VALINE_MACHINE_UPGRADE_TIER_5 = ITEMS.register("valine_machine_upgrade_tier_5",
+            () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC)));
 
     public static final RegistryObject<Item> VALINE_HELMET = ITEMS.register("valine_helmet",
             () -> new UpgradeArmorItem(ModArmorMaterials.VALINE, ArmorItem.Type.HELMET, new Item.Properties().rarity(Rarity.RARE).fireResistant()));

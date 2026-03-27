@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "valine_ingots:mysterious_glove"
+  },
+  "pattern": [
+    "%#%",
+    "#$#",
+    "%#%"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "%": {
+      "item": "minecraft:light_gray_wool"
+    },
+    "#": {
+      "item": "minecraft:white_wool"
+    },
+    "$": {
+      "item": "valine_ingots:valine_upgrade_chip"
+    }
+  }
+}

@@ -7,6 +7,7 @@ import net.flansflame.flans_knowledge_lib.tool_set.CustomToolSets;
 import net.flansflame.valine_ingots.ValineIngots;
 import net.flansflame.valine_ingots.component.ModComponents;
 import net.flansflame.valine_ingots.items.ModItems;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -79,7 +80,7 @@ public class UpgradeShovelItem extends CustomShovelItem {
             component.add(Component.literal(" §7" + refine + " / 50"));
             component.add(Component.translatable("item." + ValineIngots.MOD_ID + ".valine_armors.desc.damage.none"));
             if (damage >= 200) {
-                component.add(Component.literal(" " + damage + "§7 / 200"));
+                component.add(Component.literal(" " + damage + "§7 / 200 | ").append(Component.translatable("item." + ValineIngots.MOD_ID + ".valine_armors.desc.upgradable").withStyle(ChatFormatting.DARK_GRAY)));
             } else {
                 component.add(Component.literal(" §7" + damage + " / 200"));
             }

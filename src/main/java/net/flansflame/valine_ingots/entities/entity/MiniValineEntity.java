@@ -4,6 +4,7 @@ import net.flansflame.flans_knowledge_lib.mixin_accesor.IEntityMixinAccessor;
 import net.flansflame.flans_knowledge_lib.world.entity.IBossBar;
 import net.flansflame.flans_knowledge_lib.world.entity.IOnRemoved;
 import net.flansflame.valine_ingots.entities.ModEntities;
+import net.flansflame.valine_ingots.entities.ai.MiniValineAttackGoal;
 import net.flansflame.valine_ingots.entities.ai.valine.actives.ValineActiveSkill;
 import net.flansflame.valine_ingots.entities.ai.valine.actives.ValineActiveSkills;
 import net.flansflame.valine_ingots.entities.ai.valine.actives.ValineGoal;
@@ -48,38 +49,22 @@ import software.bernie.geckolib.core.object.PlayState;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBossBar {
+public class MiniValineEntity extends Monster implements GeoEntity, IOnRemoved {
 
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public static final EntityDataAccessor<Integer> ATTACK_PHASE = SynchedEntityData.defineId(ValineEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Integer> ATTACK_COUNT = SynchedEntityData.defineId(ValineEntity.class, EntityDataSerializers.INT);
-    public static final EntityDataAccessor<Float> EX_HP = SynchedEntityData.defineId(ValineEntity.class, EntityDataSerializers.FLOAT);
+    public static final EntityDataAccessor<Float> EX_HP = SynchedEntityData.defineId(MiniValineEntity.class, EntityDataSerializers.FLOAT);
 
-    public static float MAX_EX_HP = 4096f;
-    public static float ATTACK_DAMAGE = 40f;
-    public static int PASSIVE_SKILL_RADIUS = 64;
+    public static float MAX_EX_HP = 65f;
+    public static float ATTACK_DAMAGE = 20f;
 
-    public ValineEntity(EntityType<? extends Monster> type, Level level) {
+    public MiniValineEntity(EntityType<? extends Monster> type, Level level) {
         super(type, level);
     }
-
 
     /*ATTACKS*/
     @Override
     public void tick() {
-        if (this.getAttackCount() >= 0) {
-            this.addAttackCount(-1);
-        }
-
-        if (this.getAttackCount() == 0) {
-            ValineActiveSkill attackPhase = ValineActiveSkills.ACTIVE_SKILLS.get(this.getAttackPhase());
-
-            attackPhase.onAttack(this, this.getTarget(), this.getAttackDamage());
-
-            this.setAttackCount(-1);
-        }
-
         if (!this.isAlive() && this.isDeadOrDying()) {
             this.exDeath();
         } else {
@@ -88,16 +73,6 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
 
         if (this.getExHp() > MAX_EX_HP) {
             this.setExHp(MAX_EX_HP);
-        }
-
-        List<Entity> entities = this.level().getEntitiesOfClass(Entity.class, this.getBoundingBox().inflate(PASSIVE_SKILL_RADIUS)).stream().toList();
-        for (Entity entity : entities) {
-            for (ValinePassiveSkill passiveSkill : ValinePassiveSkills.PASSIVE_SKILLS) {
-                passiveSkill.onPassiveSkill(this, entity);
-            }
-        }
-        for (ValinePassiveSkill passiveSkill : ValinePassiveSkills.PASSIVE_SKILLS) {
-            passiveSkill.asPassiveSkill(this);
         }
 
         super.tick();
@@ -118,17 +93,6 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
         controllers.add(new AnimationController<>(this, "controller", 0, this::predicate));
-
-        ArrayList<String> animations = new ArrayList<>();
-        for (ValineActiveSkill attackPhase : ValineActiveSkills.ACTIVE_SKILLS) {
-            if (!animations.contains(attackPhase.getAnimationId())){
-                animations.add(attackPhase.getAnimationId());
-            }
-        }
-
-        for (String animation : animations) {
-            create(controllers, animation);
-        }
     }
 
     public <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
@@ -141,7 +105,7 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
         return cache;
     }
 
-    public void trigger(ValineEntity valine, Level level, String id) {
+    public void trigger(MiniValineEntity valine, Level level, String id) {
         if (level instanceof ServerLevel) valine.triggerAnim(id + "_controller", id);
     }
 
@@ -171,24 +135,20 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new ValineGoal(this, 2.0D));
+        this.goalSelector.addGoal(2, new MiniValineAttackGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomFlyingGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 0, false, false, entity ->
-                entity.getType() != ModEntities.VALINE_ENTITY.get() && entity.getType() != EntityType.WITHER_SKELETON && entity.attackable()
-        ));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();
-        builder.add(Attributes.MAX_HEALTH, MAX_EX_HP / 4f);
+        builder.add(Attributes.MAX_HEALTH, MAX_EX_HP);
         builder.add(Attributes.MOVEMENT_SPEED, 0.3f);
         builder.add(Attributes.ATTACK_DAMAGE, ATTACK_DAMAGE);
-        builder.add(Attributes.ATTACK_SPEED, 1.8);
+        builder.add(Attributes.ATTACK_SPEED, 2.7);
         return builder;
     }
 
@@ -199,25 +159,6 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
 
     @Override
     public void checkDespawn() {
-    }
-
-    @Override
-    public String getTextureId() {
-        return "valine";
-    }
-
-    @Override
-    public boolean useBarCover() {
-        return true;
-    }
-
-    @Override
-    public float getEntityHpPercentage(LivingEntity entity) {
-        if (entity instanceof ValineEntity valine) {
-            return valine.getExHp() / MAX_EX_HP;
-        } else {
-            return 1f;
-        }
     }
 
 
@@ -234,7 +175,7 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
 
     @Override
     public float getHealth() {
-        return this.getExHp() / 4f;
+        return this.getExHp();
     }
 
     @Override
@@ -289,7 +230,7 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
     public void flansKnowledgeLib$onRemoved() {
         if (!removed) {
             if (this.level() instanceof ServerLevel server) {
-                ValineEntity entityToSpawn = ModEntities.VALINE_ENTITY.get().spawn(server, this.blockPosition(), MobSpawnType.COMMAND);
+                var entityToSpawn = ModEntities.MINI_VALINE.get().spawn(server, this.blockPosition(), MobSpawnType.COMMAND);
                 if (entityToSpawn != null) {
                     entityToSpawn.setExHp(this.getExHp());
                     entityToSpawn.setUUID(this.getUUID());
@@ -309,24 +250,8 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
     }
 
     public void exDeath() {
-        if (this.level() instanceof ServerLevel server) {
-            server.sendParticles(ParticleTypes.EXPLOSION_EMITTER, this.getX(), this.getY() + 0.5, this.getZ(), 1, 0, 0, 0, 0);
-            server.playSound(null, this.blockPosition(), SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE);
-        }
-
         ++this.deathTime;
         if (this.deathTime >= 20 && !this.isRemoved()) {
-
-            if (this.level() instanceof ServerLevel server) {
-                ItemEntity drop = new ItemEntity(server, this.getX(), this.getY(), this.getZ(), new ItemStack(ModItems.VALINE_SPEAR.get()));
-                server.addFreshEntity(drop);
-
-                for (int i = 0; i < 9; i++) {
-                    ItemEntity drop2 = new ItemEntity(server, this.getX(), this.getY(), this.getZ(), new ItemStack(ModItems.VALINE_NUGGET.get(), 64));
-                    server.addFreshEntity(drop2);
-                }
-            }
-
             this.level().broadcastEntityEvent(this, (byte) 60);
 
             if (this.getRemovalReason() == null) {
@@ -351,8 +276,6 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        if (tag.contains("AttackPhase")) this.setAttackPhase(tag.getInt("AttackPhase"));
-        if (tag.contains("AttackCount")) this.setAttackCount(tag.getInt("AttackCount"));
         if (tag.contains("ExHp")) this.setExHp(tag.getFloat("ExHp"));
         else this.setExHp(MAX_EX_HP);
     }
@@ -360,41 +283,13 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        tag.putInt("AttackPhase", this.getAttackPhase());
-        tag.putInt("AttackCount", this.getAttackCount());
         tag.putFloat("ExHp", this.getExHp());
     }
 
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(ATTACK_PHASE, 0);
-        this.entityData.define(ATTACK_COUNT, -1);
         this.entityData.define(EX_HP, MAX_EX_HP);
-    }
-
-    public void setAttackPhase(int i) {
-        this.entityData.set(ATTACK_PHASE, i);
-    }
-
-    public void setAttackPhase() {
-        this.entityData.set(ATTACK_PHASE, 0);
-    }
-
-    public int getAttackPhase() {
-        return this.entityData.get(ATTACK_PHASE);
-    }
-
-    public void setAttackCount(int i) {
-        this.entityData.set(ATTACK_COUNT, i);
-    }
-
-    public int getAttackCount() {
-        return this.entityData.get(ATTACK_COUNT);
-    }
-
-    public void addAttackCount(int i) {
-        this.setAttackCount(this.getAttackCount() + i);
     }
 
     public void setExHp(float exHp) {

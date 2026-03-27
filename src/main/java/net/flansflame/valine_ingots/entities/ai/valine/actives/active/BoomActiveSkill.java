@@ -1,7 +1,7 @@
-package net.flansflame.valine_ingots.entities.ai.valine.active.custom;
+package net.flansflame.valine_ingots.entities.ai.valine.actives.active;
 
 import net.flansflame.flans_knowledge_lib.Utils;
-import net.flansflame.valine_ingots.entities.ai.valine.active.ValineActiveSkill;
+import net.flansflame.valine_ingots.entities.ai.valine.actives.ValineActiveSkill;
 import net.flansflame.valine_ingots.entities.entity.ValineEntity;
 import net.flansflame.valine_ingots.damagesource.ModDamageTypes;
 import net.minecraft.server.level.ServerLevel;

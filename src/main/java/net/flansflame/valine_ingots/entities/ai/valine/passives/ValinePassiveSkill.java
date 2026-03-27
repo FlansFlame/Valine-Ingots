@@ -1,4 +1,4 @@
-package net.flansflame.valine_ingots.entities.ai.valine.passive;
+package net.flansflame.valine_ingots.entities.ai.valine.passives;
 
 import net.flansflame.valine_ingots.entities.entity.ValineEntity;
 import net.minecraft.world.entity.Entity;

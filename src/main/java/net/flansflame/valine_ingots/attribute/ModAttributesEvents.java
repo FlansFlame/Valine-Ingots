@@ -1,6 +1,7 @@
 package net.flansflame.valine_ingots.attribute;
 
 import net.flansflame.valine_ingots.component.ModComponents;
+import net.flansflame.valine_ingots.damagesource.ModDamageTypes;
 import net.flansflame.valine_ingots.entities.entity.ValineEntity;
 import net.flansflame.valine_ingots.items.ModItems;
 import net.minecraft.server.level.ServerLevel;
@@ -79,7 +80,7 @@ public class ModAttributesEvents {
             DamageSource source = event.getSource();
             Entity eSourceEntity = source.getDirectEntity();
 
-            if (eSourceEntity instanceof ValineEntity) {
+            if (eSourceEntity instanceof ValineEntity || source.is(ModDamageTypes.VALINE_ATTACK)) {
                 final float SINGLE_MULTIPLIER = 0.004f;
                 float multiplier = 0;
 

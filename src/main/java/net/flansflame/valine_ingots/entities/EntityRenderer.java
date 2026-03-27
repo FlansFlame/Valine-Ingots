@@ -1,6 +1,8 @@
 package net.flansflame.valine_ingots.entities;
 
 import net.flansflame.valine_ingots.entities.renderer.FallingValineSpearRenderer;
+import net.flansflame.valine_ingots.entities.renderer.LaserTurretRenderer;
+import net.flansflame.valine_ingots.entities.renderer.MiniValineRenderer;
 import net.flansflame.valine_ingots.entities.renderer.ValineRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -14,5 +16,7 @@ public class EntityRenderer {
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.VALINE_ENTITY.get(), renderManager -> new ValineRenderer<>(renderManager, "valine"));
         event.registerEntityRenderer(ModEntities.FALLING_VALINE_SPEAR_ENTITY.get(), renderManager -> new FallingValineSpearRenderer<>(renderManager, "falling_valine_spear"));
+        event.registerEntityRenderer(ModEntities.LASER_TURRET.get(), renderManager -> new LaserTurretRenderer<>(renderManager, "laser_turret"));
+        event.registerEntityRenderer(ModEntities.MINI_VALINE.get(), renderManager -> new MiniValineRenderer<>(renderManager, "valine"));
     }
 }

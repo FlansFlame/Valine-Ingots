@@ -13,6 +13,7 @@
   "item.valine_ingots.valine_machine_upgrade_tier_2" : "Valine Machine Upgrade [x2]",
   "item.valine_ingots.valine_machine_upgrade_tier_3" : "Valine Machine Upgrade [x3]",
   "item.valine_ingots.valine_machine_upgrade_tier_4" : "Valine Machine Upgrade [x5]",
+  "item.valine_ingots.valine_machine_upgrade_tier_5" : "Valine Machine Upgrade [x10]",
 
   "item.valine_ingots.creative_anti_matter_pellet": "Creative Anti Matter Pellet",
 
@@ -36,6 +37,7 @@
   "item.valine_ingots.valine_armors.desc.refine.end": "§4Refine :",
   "item.valine_ingots.valine_armors.desc.damage": "Damage :",
   "item.valine_ingots.valine_armors.desc.damage.none": "§7Damage",
+  "item.valine_ingots.valine_armors.desc.upgradable": "Combine with a antimatter pellet to upgrade!",
 
   "item.valine_ingots.valine_helmet": "Valine Helmet",
   "item.valine_ingots.valine_chestplate": "Valine Chestplate",
@@ -46,5 +48,6 @@
   "item.valine_ingots.mysterious_glove.desc": "§8Looks sus... There nothing inside so I guess it's safe?\nI wonder what happens when I right click it.",
 
   "entity.valine_ingots.valine": "Valine-Chan",
-  "entity.valine_ingots.falling_valine_spear": "Falling Valine Spear"
+  "entity.valine_ingots.falling_valine_spear": "Falling Valine Spear",
+  "entity.valine_ingots.laser_turret": "Laser Turret"
 }

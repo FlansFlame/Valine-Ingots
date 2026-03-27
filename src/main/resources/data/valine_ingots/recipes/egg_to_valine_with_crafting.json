@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "valine_ingots:valine_nugget"
+  },
+  "pattern": [
+    "###",
+    "#%#",
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "%": {
+      "item": "minecraft:iron_nugget"
+    },
+    "#": {
+      "item": "minecraft:egg"
+    }
+  }
+}

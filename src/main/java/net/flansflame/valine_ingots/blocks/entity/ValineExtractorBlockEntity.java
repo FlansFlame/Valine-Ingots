@@ -326,6 +326,8 @@ public class ValineExtractorBlockEntity extends BlockEntity implements MenuProvi
             return 3f;
         } else if (itemStack.is(ModItems.VALINE_MACHINE_UPGRADE_TIER_4.get())) {
             return 5f;
+        } else if (itemStack.is(ModItems.VALINE_MACHINE_UPGRADE_TIER_5.get())) {
+            return 10f;
         } else {
             return 1f;
         }

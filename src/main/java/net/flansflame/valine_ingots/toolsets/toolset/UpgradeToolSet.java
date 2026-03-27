@@ -45,25 +45,13 @@ public class UpgradeToolSet extends ToolSet {
     public void setUp(String modId, String id, RegistryObject<Item> ingredient, int attackDamage, float attackSpeed, int toolLevel, float digSpeed, int durability, Tier tier, Item.Properties build, CustomToolSets builder) {
         this.ID = id;
         this.NEEDS_THIS_TOOL = BlockTags.create(new ResourceLocation(modId, "needs_" + this.ID + "_tool"));
-        this.TIER = TierSortingRegistry.registerTier(new ForgeTier(toolLevel, durability, digSpeed, 0.0F, 30, this.NEEDS_THIS_TOOL, () -> {
-            return Ingredient.of(new ItemLike[]{(ItemLike) ingredient.get()});
-        }), new ResourceLocation(modId, this.ID), List.of(tier), List.of());
+        this.TIER = TierSortingRegistry.registerTier(new ForgeTier(toolLevel, durability, digSpeed, 0.0F, 30, this.NEEDS_THIS_TOOL, () -> Ingredient.of(ingredient.get())), new ResourceLocation(modId, this.ID), List.of(tier), List.of());
 
-        this.SWORD = this.create(new ToolSetItem(this.ID + "_sword", () -> {
-            return new UpgradeSwordItem(this.TIER, attackDamage, attackSpeed, build, builder);
-        }));
-        this.PICKAXE = this.create(new ToolSetItem(this.ID + "_pickaxe", () -> {
-            return new UpgradePickaxeItem(this.TIER, attackDamage, attackSpeed, build, builder);
-        }));
-        this.AXE = this.create(new ToolSetItem(this.ID + "_axe", () -> {
-            return new UpgradeAxeItem(this.TIER, attackDamage, attackSpeed, build, builder);
-        }));
-        this.SHOVEL = this.create(new ToolSetItem(this.ID + "_shovel", () -> {
-            return new UpgradeShovelItem(this.TIER, attackDamage, attackSpeed, build, builder);
-        }));
-        this.HOE = this.create(new ToolSetItem(this.ID + "_hoe", () -> {
-            return new UpgradeHoeItem(this.TIER, attackDamage, attackSpeed, build, builder);
-        }));
+        this.SWORD = this.create(new ToolSetItem(this.ID + "_sword", () -> new UpgradeSwordItem(this.TIER, attackDamage, attackSpeed, build, builder)));
+        this.PICKAXE = this.create(new ToolSetItem(this.ID + "_pickaxe", () -> new UpgradePickaxeItem(this.TIER, attackDamage, attackSpeed, build, builder)));
+        this.AXE = this.create(new ToolSetItem(this.ID + "_axe", () -> new UpgradeAxeItem(this.TIER, attackDamage, attackSpeed, build, builder)));
+        this.SHOVEL = this.create(new ToolSetItem(this.ID + "_shovel", () -> new UpgradeShovelItem(this.TIER, attackDamage, attackSpeed, build, builder)));
+        this.HOE = this.create(new ToolSetItem(this.ID + "_hoe", () -> new UpgradeHoeItem(this.TIER, attackDamage, attackSpeed, build, builder)));
     }
 
     public Tier getTier(){

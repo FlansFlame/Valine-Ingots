@@ -1,0 +1,83 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1, 0, -1], "size": [2, 32, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "turret",
+					"parent": "root",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "hor_turret",
+					"parent": "turret",
+					"pivot": [0, 24, 0],
+					"rotation": [0, -45, 0],
+					"cubes": [
+						{"origin": [1, 27, -1], "size": [6, 2, 2], "uv": [8, 0]},
+						{"origin": [-7, 27, -1], "size": [6, 2, 2], "uv": [8, 4]},
+						{"origin": [-7, 19, -1], "size": [6, 2, 2], "uv": [8, 12]},
+						{"origin": [1, 19, -1], "size": [6, 2, 2], "uv": [8, 8]},
+						{"origin": [1, 27, -1], "size": [6, 2, 2], "pivot": [0, 24, 0], "rotation": [0, -90, 0], "uv": [24, 4]},
+						{"origin": [-7, 27, -1], "size": [6, 2, 2], "pivot": [0, 24, 0], "rotation": [0, -90, 0], "uv": [24, 0]},
+						{"origin": [-7, 19, -1], "size": [6, 2, 2], "pivot": [0, 24, 0], "rotation": [0, -90, 0], "uv": [8, 20]},
+						{"origin": [1, 19, -1], "size": [6, 2, 2], "pivot": [0, 24, 0], "rotation": [0, -90, 0], "uv": [8, 16]}
+					]
+				},
+				{
+					"name": "ver_turret",
+					"parent": "turret",
+					"pivot": [0, 24, 0],
+					"rotation": [0, -45, 0]
+				},
+				{
+					"name": "ver_turret_1",
+					"parent": "ver_turret",
+					"pivot": [-6, 24, 0],
+					"cubes": [
+						{"origin": [-7, 21, -1], "size": [2, 6, 2], "uv": [8, 24]}
+					]
+				},
+				{
+					"name": "ver_turret_2",
+					"parent": "ver_turret",
+					"pivot": [6, 24, 0],
+					"cubes": [
+						{"origin": [5, 21, -1], "size": [2, 6, 2], "uv": [24, 8]}
+					]
+				},
+				{
+					"name": "ver_turret_3",
+					"parent": "ver_turret",
+					"pivot": [0, 24, -6],
+					"cubes": [
+						{"origin": [-7, 21, -1], "size": [2, 6, 2], "pivot": [0, 24, 0], "rotation": [0, -90, 0], "uv": [24, 16]}
+					]
+				},
+				{
+					"name": "ver_turret_4",
+					"parent": "ver_turret",
+					"pivot": [0, 24, 6],
+					"cubes": [
+						{"origin": [5, 21, -1], "size": [2, 6, 2], "pivot": [0, 24, 0], "rotation": [0, -90, 0], "uv": [16, 24]}
+					]
+				}
+			]
+		}
+	]
+}

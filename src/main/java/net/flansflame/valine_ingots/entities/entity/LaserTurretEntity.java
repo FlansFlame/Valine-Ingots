@@ -5,11 +5,14 @@ import net.flansflame.flans_knowledge_lib.mixin_accesor.IEntityMixinAccessor;
 import net.flansflame.flans_knowledge_lib.world.entity.IOnRemoved;
 import net.flansflame.valine_ingots.damagesource.ModDamageTypes;
 import net.flansflame.valine_ingots.entities.ModEntities;
-import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
@@ -23,18 +26,19 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
-import java.util.Comparator;
 import java.util.List;
 
-public class FallingValineSpearEntity extends Entity implements GeoEntity, IOnRemoved, IImmune2ValineEP {
+public class LaserTurretEntity extends Entity implements GeoEntity, IOnRemoved, IImmune2ValineEP {
 
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public static final int FALL_TICK = 20;
-    public static final int DEATH_TICK = 60;
-    public static final float SINGLE_FALL_AMOUNT = 1.2f;
+    private static final int KILL_COUNT = 200;
+    private static final int LASER_RADIUS = 10;
+    private static final int LASER_SEGMENTS = 20;
 
-    public FallingValineSpearEntity(EntityType<?> type, Level level) {
+    private float angle = 0;
+
+    public LaserTurretEntity(EntityType<?> type, Level level) {
         super(type, level);
     }
 
@@ -42,35 +46,36 @@ public class FallingValineSpearEntity extends Entity implements GeoEntity, IOnRe
     public void tick() {
         super.tick();
 
-        double x = this.getX();
-        double y = this.getY();
-        double z = this.getZ();
+        angle += 12f;
+        if (angle >= 360f) angle -= 360f;
 
+        double rad = Math.toRadians(angle);
+        Vec3 origin = this.position().add(0, 0.5, 0);
+        Vec3 dir = new Vec3(Math.cos(rad), 0, Math.sin(rad));
 
-        if (this.level() instanceof ServerLevel server) {
-            final Vec3 _center = new Vec3(x, y + 1, z);
-            List<LivingEntity> _entfound = server.getEntitiesOfClass(LivingEntity.class, new AABB(_center, _center)
-                    .inflate(1), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
-            for (LivingEntity entity : _entfound) {
-                entity.hurt(Utils.createDamageSource(server, ModDamageTypes.VALINE_SPEAR_ATTACK), 1);
+        for (int i = 0; i < LASER_SEGMENTS; i++) {
+            double t = i / (double) LASER_SEGMENTS;
+            Vec3 pos = origin.add(dir.scale(LASER_RADIUS * t));
+
+            if (this.level() instanceof ClientLevel client) {
+                client.addParticle(DustParticleOptions.REDSTONE, pos.x, pos.y, pos.z, 0, 0, 0);
+            } else if (this.level() instanceof ServerLevel server) {
+                List<LivingEntity> entities = server.getEntitiesOfClass(LivingEntity.class, new AABB(BlockPos.containing(pos)).inflate(0.5f));
+
+                for (LivingEntity entity : entities) {
+                    if (entity == null) continue;
+                    entity.hurt(Utils.createDamageSource(server, ModDamageTypes.VALINE_ATTACK), 6f);
+                }
             }
         }
 
-        if (this.shouldFall()) {
-            this.setPos(new Vec3(x, y - SINGLE_FALL_AMOUNT, z));
-
-        }
         if (this.shouldDie()) {
             this.exDeath();
         }
     }
 
-    public boolean shouldFall() {
-        return tickCount >= FALL_TICK && this.level().getBlockState(this.getOnPos()).isAir();
-    }
-
     public boolean shouldDie() {
-        return tickCount >= DEATH_TICK && !this.level().getBlockState(this.getOnPos()).isAir();
+        return this.tickCount >= KILL_COUNT;
     }
 
     /*GECKOLIB*/
@@ -135,7 +140,7 @@ public class FallingValineSpearEntity extends Entity implements GeoEntity, IOnRe
     public void flansKnowledgeLib$onRemoved() {
         if (!removed) {
             if (this.level() instanceof ServerLevel server) {
-                FallingValineSpearEntity entityToSpawn = ModEntities.FALLING_VALINE_SPEAR_ENTITY.get().spawn(server, this.blockPosition(), MobSpawnType.COMMAND);
+                LaserTurretEntity entityToSpawn = ModEntities.LASER_TURRET.get().spawn(server, this.blockPosition(), MobSpawnType.COMMAND);
                 if (entityToSpawn != null) {
                     entityToSpawn.setUUID(this.getUUID());
                     entityToSpawn.setYRot(this.getYRot());
@@ -153,11 +158,6 @@ public class FallingValineSpearEntity extends Entity implements GeoEntity, IOnRe
     }
 
     public void exDeath() {
-        if (this.level() instanceof ServerLevel server) {
-            server.sendParticles(ParticleTypes.EXPLOSION_EMITTER, this.getX(), this.getY() + 0.5, this.getZ(), 1, 0, 0, 0, 0);
-            server.playSound(null, this.blockPosition(), SoundEvents.GENERIC_EXPLODE, SoundSource.HOSTILE);
-        }
-
         this.level().broadcastEntityEvent(this, (byte) 60);
 
         if (this.getRemovalReason() == null) {
