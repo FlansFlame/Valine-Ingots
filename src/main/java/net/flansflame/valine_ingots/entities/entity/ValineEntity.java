@@ -325,6 +325,9 @@ public class ValineEntity extends Monster implements GeoEntity, IOnRemoved, IBos
                     ItemEntity drop2 = new ItemEntity(server, this.getX(), this.getY(), this.getZ(), new ItemStack(ModItems.VALINE_NUGGET.get(), 64));
                     server.addFreshEntity(drop2);
                 }
+
+                ItemEntity drop3 = new ItemEntity(server, this.getX(), this.getY(), this.getZ(), new ItemStack(ModItems.VALINE_MACHINE_UPGRADE_TIER_5.get()));
+                server.addFreshEntity(drop3);
             }
 
             this.level().broadcastEntityEvent(this, (byte) 60);
